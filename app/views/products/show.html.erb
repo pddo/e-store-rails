@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Image</strong>
+  <%= image_tag @product.image.variant(resize: "100x100") %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>

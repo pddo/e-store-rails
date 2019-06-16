@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Image</th>
       <th>Category</th>
       <th>Short desc</th>
       <th>Full desc</th>
@@ -19,6 +20,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= image_tag product.image.variant(resize: "100x100") %></td>
         <td><%= product.category %></td>
         <td><%= product.short_desc %></td>
         <td><%= product.full_desc %></td>

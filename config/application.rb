@@ -33,5 +33,7 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.active_storage.service = :local
   end
 end
