@@ -10,6 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery-3.2.1.min
+//= require bootstrap.bundle.min
+//= require skrollr.min
+//= require owl.carousel.min
+//= require jquery.nice-select.min
+//= require jquery.ajaxchimp.min
+//= require mail-script
+//
+//= require main
+//
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
