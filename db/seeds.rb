@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Product.destroy_all
+
 product = Product.create(
     name: 'Faded SkyBlu Denim Jeans',
     category: 'Household',
@@ -21,3 +23,19 @@ product.image.attach(
   io: File.open(Rails.root.join("public/img/product/product1.png")),
   filename: 'product1.png'
 )
+
+11.times.each_with_index do |idx|
+  pro = Product.create(
+    name: "Product #{idx}",
+    category: 'Household',
+    short_desc: "Short Desc #{idx}",
+    full_desc: "Full Story #{idx}",
+    price: (150 * idx / 2 + 3),
+    stocked: (idx % 2) > 0
+  )
+
+  pro.image.attach(
+    io: File.open(Rails.root.join("public/img/product/product#{(idx + 1) % 9}.png")),
+    filename: "product#{idx + 1}.png"
+  )
+end
