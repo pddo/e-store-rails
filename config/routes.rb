@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   scope '/admin' do
     root to: "products#index"
     resources :products
+    resources :orders
   end
 end
