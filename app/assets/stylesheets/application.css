@@ -16,6 +16,7 @@
  *= require css/all.min
  *= require owl.theme.default.min
  *= require owl.carousel.min.css
+ *= require nouislider.min
  *
  *= require style
  *= require_self

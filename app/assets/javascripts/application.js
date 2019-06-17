@@ -17,6 +17,7 @@
 //= require jquery.nice-select.min
 //= require jquery.ajaxchimp.min
 //= require mail-script
+//= require nouislider.min
 //
 //= require main
 //
