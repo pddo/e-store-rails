@@ -4,4 +4,8 @@ class StaticController < ApplicationController
 
   # def contact
   # end
+
+  def shop
+    @products = Product.all
+  end
 end
