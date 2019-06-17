@@ -31,6 +31,7 @@
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
+          <div id="product-id" style="display: none;"><%= @product.id %></div>
 					<h3><%= @product.name %></h3>
 					<h2>$<%= @product.price %></h2>
 					<ul class="list">
@@ -51,7 +52,9 @@
 						<input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
                     class="reduced items-count" type="button"><i class="ti-angle-right"></i></button>
-						<a class="button primary-btn" href="#">Add to Cart</a>               
+						<a id="details-add-to-cart-btn" class="button primary-btn" href="#" onclick="return false">
+              Add to Cart
+            </a>
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>

@@ -20,6 +20,8 @@
 //= require nouislider.min
 //
 //= require main
+//= require cart
 //
 //= require rails-ujs
 //= require activestorage
+
