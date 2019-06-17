@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/index', to: redirect('/')
   get '/shop', to: 'static#shop'
   get '/contact', to: 'static#contact'
+  get '/product_details/:id', to: 'static#product_details', as: 'product_details'
 
   scope '/admin' do
     root to: "products#index"
