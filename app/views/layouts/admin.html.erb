@@ -15,6 +15,10 @@
   </head>
 
   <body>
+    <p>Menu:
+      <%= link_to "Products", products_path %> |
+      <%= link_to "Orders", orders_path %>
+    </p>
     <%= yield %>
   </body>
 </html>
