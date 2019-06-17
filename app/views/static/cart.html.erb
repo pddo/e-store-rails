@@ -36,7 +36,7 @@
                 </div>
               </td>
               <td>
-                <h5>$<%= item.product.price * item.quantity %></h5>
+                <h5>$<%= format_price(item.spend) %></h5>
               </td>
             </tr>
             <% end %>
@@ -51,7 +51,7 @@
                 <h5>Subtotal</h5>
               </td>
               <td>
-                <h5>$<%= @total %></h5>
+                <h5><%= format_price(@total) %></h5>
               </td>
             </tr>
             <tr class="out_button_area">
@@ -69,7 +69,9 @@
                   <%= link_to shop_path, class: 'gray_btn' do %>
                     Continue Shopping
                   <% end  %>
-                  <a class="primary-btn ml-2" href="#">Submit Order</a>
+                  <%= link_to orders_path, method: :post, class: 'primary-btn ml-2' do %>
+                    Submit Order
+                  <% end  %>
                 </div>
               </td>
             </tr>

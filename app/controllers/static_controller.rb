@@ -31,4 +31,8 @@ class StaticController < ApplicationController
     @items = CartItem.includes(:product).all.to_a
     @total = @items.map {|item| item.product.price * item.quantity }.sum
   end
+
+  def order_confirmation
+    @order = Order.includes(:items).find(params[:id])
+  end
 end

@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   get '/product_details/:id', to: 'static#product_details', as: 'product_details'
   post '/add_to_cart', to: 'static#add_to_cart', as: 'add_to_cart'
   get '/cart', to: 'static#cart', as: 'cart'
+  get '/order_confirmation/:id', to: 'static#order_confirmation', as: 'order_confirmation'
 
   scope '/admin' do
     root to: "products#index"
     resources :products
-    resources :orders
+    resources :orders, only: [:index, :show, :create, :destroy]
   end
 end

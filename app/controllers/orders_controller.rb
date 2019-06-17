@@ -13,43 +13,24 @@ class OrdersController < ApplicationController
   def show
   end
 
-  # GET /orders/new
-  def new
-    @order = Order.new
-  end
-
-  # GET /orders/1/edit
-  def edit
-  end
-
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
-    respond_to do |format|
-      if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
-      else
-        format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+    @order = Order.new(total: 0)
+    CartItem.transaction do
+      @order.save!
+      CartItem.all.each do |item|
+        @order.items.create!(
+          product_id: item.product_id,
+          quantity: item.quantity
+        )
+        @order.total += item.spend
       end
+      @order.save!
+      CartItem.delete_all
     end
-  end
 
-  # PATCH/PUT /orders/1
-  # PATCH/PUT /orders/1.json
-  def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order }
-      else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to order_confirmation_url(@order.id)
   end
 
   # DELETE /orders/1
