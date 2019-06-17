@@ -28,6 +28,7 @@ class StaticController < ApplicationController
   end
 
   def cart
-    @items = CartItem.all
+    @items = CartItem.includes(:product).all.to_a
+    @total = @items.map {|item| item.product.price * item.quantity }.sum
   end
 end
