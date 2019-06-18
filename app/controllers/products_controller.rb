@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   layout 'admin'
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  http_basic_authenticate_with :name => ADMIN_USER, :password => ADMIN_PASS
+
   # GET /products
   # GET /products.json
   def index
